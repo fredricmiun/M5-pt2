@@ -1,10 +1,11 @@
 const { src, dest, watch, series, parallel } = require("gulp");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify-es").default;
+var uglifycss = require("gulp-uglifycss");
 
 /* Sökväg */
 const files = {
-  htmlPath: "src/**/*.html",
+  htmlPath: "src/**/*.php",
   jsPath: "src/**/*.js",
   cssPath: "src/css/*.css"
 };
@@ -24,7 +25,9 @@ function jsTask() {
 
 /* Task: kopiera css och gör den ful */
 function cssTask() {
-  return src(files.cssPath).pipe(dest("pub/css"));
+  return src(files.cssPath)
+    .pipe(uglifycss())
+    .pipe(dest("pub/css"));
 }
 
 /* Task: watcher */

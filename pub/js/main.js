@@ -1,1 +1,1 @@
-console.log("hello from one js"),console.log("hello"),console.log("hello from two jsss");
+console.log("hello from one jss"),console.log("hello"),console.log("hello from two jsss");
