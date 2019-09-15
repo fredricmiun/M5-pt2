@@ -42,3 +42,5 @@ browserSync.init({
   logLevel: "debug"
 });
 ```
+
+    Tillägget skapar en tillfällig lokal adress som du använder för att nå från olika enheter. Adressen du ska använda är den efter _Tunnel:_ om inte adressen efter _External:_ funkar.
