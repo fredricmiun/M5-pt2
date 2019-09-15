@@ -9,7 +9,8 @@ const files = {
   htmlPath: "src/**/*.html",
   jsPath: "src/js/*.js",
   cssPath: "src/css/*.css",
-  imgPath: "src/images/**/*.jpg" /* Samtliga bilder och underkataloger */
+  imgPath:
+    "src/images/**/*" /* Samtliga filer oavsett filtyp och underkataloger */
 };
 
 /* Task: kopiera HTML */

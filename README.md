@@ -22,9 +22,9 @@ Gulp
 
 3.  Skapa GitHub-konto
 
-    Ett system som består av Gulp & Git tillsammans med startfiler som en index.html, 1-normalize.css, 2-reset.css, 3-layout.css och 4-base.css. Css-filerna är numrerade för att ihopslagningen skall ske i rätt ordning.
+    Ett system som består av Gulp & Git tillsammans med startfiler som en index.html, 1-normalize.css, 2-reset.css, 3-layout.css och 4-base.css. Css-filerna är numrerade för att ihopslagningen skall ske i rätt ordning. Samt exempelfiler i katalogerna images och js.
 
-    För att komma igång med systemet laddar du ner filerna och initierar arbetet med en 'npm install' från projektets rotkatalog. Sen är det bara att köra igång!
+    För att komma igång med systemet laddar du ner filerna och initierar arbetet med en 'npm install' i terminalen från projektets rotkatalog. Sen är det bara att köra igång!
 
     _Notering: För att systemet verkligen ska funka behöver alla js-filer befinna sig i samma katalog, likadant gäller för css-filer._
 
