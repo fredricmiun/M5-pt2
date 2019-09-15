@@ -32,6 +32,8 @@ Gulp
 
     Ett extra tillägg till systemet är att du kan nå projektet från olika enheter under samma wifi.
 
+    Tillägget skapar en tillfällig lokal adress som du använder för att nå från olika enheter. Adressen du ska använda är den efter _Tunnel:_ om inte adressen efter _External:_ funkar.
+
 ```javascript
 browserSync.init({
   server: {
@@ -42,5 +44,3 @@ browserSync.init({
   logLevel: "debug"
 });
 ```
-
-    Tillägget skapar en tillfällig lokal adress som du använder för att nå från olika enheter. Adressen du ska använda är den efter _Tunnel:_ om inte adressen efter _External:_ funkar.
