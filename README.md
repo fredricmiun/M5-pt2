@@ -13,8 +13,11 @@ Gulp
 2.  Paket & Verktyg
 
     Browsersync - Används för att uppdatera webbläsare utan att du behöver byta fönster. Du har även möjlighet att nå ditt projekt från andra enheter.
+
     Concat - Detta används för att slå samman filer, exempelvis .js- och .css-filer.
+
     Uglify-es - Används för att komprimera/minimera .js-filer.
+
     Uglifycss - Används för att komprimera/minimera .css-filer.
 
 3.  Skapa GitHub-konto
