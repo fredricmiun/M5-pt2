@@ -2,13 +2,14 @@ const { src, dest, watch, series, parallel } = require("gulp");
 const browserSync = require("browser-sync").create(); /* Live reload */
 const concat = require("gulp-concat"); /* Slå samman */
 const uglify = require("gulp-uglify-es").default; /* Minimera js */
-var uglifycss = require("gulp-uglifycss"); /* Minimera css */
+const sass = require("gulp-sass");
+sass.compiler = require("node-sass");
 
 /* Sökväg */
 const files = {
   htmlPath: "src/**/*.html",
   jsPath: "src/js/*.js",
-  cssPath: "src/css/*.css",
+  scssPath: "src/scss/*.scss",
   imgPath:
     "src/images/**/*" /* Samtliga filer oavsett filtyp och underkataloger */
 };
@@ -30,10 +31,9 @@ function jsTask() {
 }
 
 /* Task: kopiera css och gör den ful */
-function cssTask() {
-  return src(files.cssPath)
-    .pipe(concat("main.css"))
-    .pipe(uglifycss())
+function scssTask() {
+  return src(files.scssPath)
+    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
     .pipe(dest("build/css"))
     .pipe(browserSync.stream());
 }
@@ -59,12 +59,12 @@ function watchTask() {
   });
 
   watch(
-    [files.htmlPath, files.jsPath, files.cssPath, files.imgPath],
-    parallel(copyHTML, jsTask, cssTask, imgTask)
+    [files.htmlPath, files.jsPath, files.scssPath, files.imgPath],
+    parallel(copyHTML, jsTask, scssTask, imgTask)
   ).on("change", browserSync.reload);
 }
 
 exports.default = series(
-  parallel(copyHTML, jsTask, cssTask, imgTask),
+  parallel(copyHTML, jsTask, scssTask, imgTask),
   watchTask
 );

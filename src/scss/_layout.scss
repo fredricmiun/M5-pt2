@@ -1,0 +1,48 @@
+$bg-color: #272626;
+$font-fam: "Open Sans", sans-serif;
+@function font-color($color) {
+  @if (lightness($color) > 50) {
+    @return #000000;
+  } @else {
+    @return #ffffff;
+  }
+}
+$href-color: #1ebcff;
+
+/* Kontrollera positioneringen, y- och x-axeln, vid absolut position */
+@mixin transform($property) {
+  -webkit-transform: $property;
+  transform: $property;
+}
+
+.padd {
+  padding: 15px;
+  border-radius: 5px;
+}
+.top_left {
+  top: 50%;
+  left: 50%;
+}
+
+html {
+  height: 100%;
+}
+body {
+  font-family: $font-fam;
+  background-color: $bg-color;
+  color: font-color($bg-color);
+  font-size: 16px;
+  height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+}
+.content_container {
+  @extend .padd;
+  @extend .top_left;
+  @include transform(translate(-50%, -50%));
+  background-color: darken($bg-color, 5);
+  border: 1px solid darken($bg-color, 9);
+  width: 100%;
+  max-width: 600px;
+  position: absolute;
+}
