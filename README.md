@@ -20,7 +20,7 @@ Gulp
 
     gulp-sass - Används för att konvertera scss-filerna till .css-filer
 
-3.  Skapa GitHub-konto
+3.  Systemet
 
     Ett system som består av Gulp & Git tillsammans med startfiler som en index.html, _base.scss, _layout.scss, _normalize.scss, _reset.scss, main.scss.
 
