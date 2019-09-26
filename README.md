@@ -2,7 +2,7 @@
 
 [Mittuniversitetet](https://www.miun.se/ "Mittuniversitetets Hemsida")
 
-### Moment 2
+### Moment 3
 
 Gulp
 
@@ -18,11 +18,11 @@ Gulp
 
     Uglify-es - Används för att komprimera/minimera .js-filer.
 
-    Uglifycss - Används för att komprimera/minimera .css-filer.
+    gulp-sass - Används för att konvertera scss-filerna till .css-filer
 
 3.  Skapa GitHub-konto
 
-    Ett system som består av Gulp & Git tillsammans med startfiler som en index.html, 1-normalize.css, 2-reset.css, 3-layout.css och 4-base.css. Css-filerna är numrerade för att ihopslagningen skall ske i rätt ordning. Samt exempelfiler i katalogerna images och js.
+    Ett system som består av Gulp & Git tillsammans med startfiler som en index.html, _base.scss, _layout.scss, _normalize.scss, _reset.scss, main.scss.
 
     För att komma igång med systemet laddar du ner filerna och initierar arbetet med en 'npm install' i terminalen från projektets rotkatalog. Sen är det bara att köra igång!
 
