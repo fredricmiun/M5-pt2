@@ -1,4 +1,6 @@
 const { src, dest, watch, series, parallel } = require("gulp");
+const sourcemaps = require("gulp-sourcemaps");
+const babel = require("gulp-babel");
 const browserSync = require("browser-sync").create(); /* Live reload */
 const concat = require("gulp-concat"); /* Slå samman */
 const uglify = require("gulp-uglify-es").default; /* Minimera js */
@@ -24,8 +26,10 @@ function copyHTML() {
 /* Task: sammanslå js-filer, minifiera filer */
 function jsTask() {
   return src(files.jsPath)
+    .pipe(sourcemaps.init())
+    .pipe(babel())
     .pipe(concat("main.js"))
-    .pipe(uglify())
+    .pipe(sourcemaps.write("."))
     .pipe(dest("build/js"))
     .pipe(browserSync.stream());
 }
