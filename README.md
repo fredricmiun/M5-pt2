@@ -2,7 +2,7 @@
 
 [Mittuniversitetet](https://www.miun.se/ "Mittuniversitetets Hemsida")
 
-### Moment 3
+### Moment 4
 
 Gulp
 
@@ -26,7 +26,7 @@ Gulp
 
     För att komma igång med systemet laddar du ner filerna och initierar arbetet med en 'npm install' i terminalen från projektets rotkatalog. Sen är det bara att köra igång!
 
-    _Notering: För att systemet verkligen ska funka behöver alla js-filer befinna sig i samma katalog, likadant gäller för css-filer._
+    _Notering: För att systemet verkligen ska funka behöver alla js-filer befinna sig i samma katalog, likadant gäller för scss-filer._
 
 4.  Övrigt
 
