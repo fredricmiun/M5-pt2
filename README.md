@@ -19,6 +19,10 @@ Gulp
     Uglify-es - Används för att komprimera/minimera .js-filer.
 
     gulp-sass - Används för att konvertera scss-filerna till .css-filer
+    
+    gulp-babel - Används för att konvertera ES6-kod till ES5.
+    
+    gulp-sourcemaps - Används för att klargöra var någonstans felet ligger i respektive filer.
 
 3.  Systemet
 
