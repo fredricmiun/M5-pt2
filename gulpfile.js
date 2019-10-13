@@ -27,7 +27,11 @@ function copyHTML() {
 function jsTask() {
   return src(files.jsPath)
     .pipe(sourcemaps.init())
-    .pipe(babel())
+    .pipe(
+      babel({
+        presets: ["@babel/preset-env"]
+      })
+    )
     .pipe(concat("main.js"))
     .pipe(sourcemaps.write("."))
     .pipe(dest("build/js"))

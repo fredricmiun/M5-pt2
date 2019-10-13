@@ -8,7 +8,12 @@ p {
   width: 240px;
   margin-right: 10px;
 }
-
+.box-content {
+  h1 {
+    font-size: 24px;
+    @extend .padd;
+  }
+}
 .content_container {
   font-size: 12px;
   input {
@@ -41,5 +46,13 @@ p {
   }
   .__save {
     color: $save-color;
+  }
+}
+.create-course-box {
+  input {
+    background-color: darken($bg-color, 8);
+    border: 1px solid darken($bg-color, 9);
+    border-radius: 5px;
+    padding: 8px;
   }
 }

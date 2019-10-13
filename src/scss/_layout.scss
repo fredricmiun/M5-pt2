@@ -32,7 +32,7 @@ body {
   position: relative;
   box-sizing: border-box;
 }
-#box-content {
+.box-content {
   width: 900px;
   @extend .margin-auto;
   @extend .padd;
@@ -49,6 +49,7 @@ body {
 .box-header {
   @extend .padd;
   font-size: 12px;
+  color: transparentize(font-color($bg-color), 0.22);
 }
 .content_container {
   @extend .padd;

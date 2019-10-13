@@ -1,28 +1,29 @@
 function displayData(x0) {
   let element = document.getElementById("box-data");
   element.innerHTML = "";
-  for (let i = 0; i < x0.length; i++) {
+  x0.forEach(function(elem) {
     element.innerHTML +=
-      "<form class='form'><div class='content_container'>" +
+      "<form class='form'><div class='content_container'><input type='hidden' name='courseKey' value='" +
+      elem.id +
+      "'>" +
       "<p class='p1'><input id='i1' type='text' name='courseCode' value='" +
-      x0[i].courseCode +
+      elem.courseCode +
       "'></p>" +
       "<p class='p1'><input type='text' name='courseProgression' value='" +
-      x0[i].progression +
+      elem.progression +
       "'></p>" +
       "<p class='p2'><input type='text' name='courseName' value='" +
-      x0[i].courseName +
+      elem.courseName +
       "'></p>" +
-      "<p class='p2'><input type='text' name='courseName' value='" +
-      x0[i].syllabus +
+      "<p class='p2'><input type='text' name='courseSyllabus' value='" +
+      elem.syllabus +
       "'></p>" +
       "<button onClick='deleteData(" +
-      x0[i].id +
+      elem.id +
       ")' class='__delete' name='courseId' type='button'>Ta bort</button>" +
       "<button class='__save' type='submit'>Spara</button>" +
       "</div></form>";
-  }
-
+  });
   loadForm();
 }
 
@@ -78,13 +79,22 @@ let loadForm = () => {
     form[i].addEventListener("submit", function(e) {
       e.preventDefault();
 
-      let a = $(this)
-        .find("input[name='courseName']")
-        .val();
-      console.log(a);
+      const formData = new FormData(this);
+      let courseKey = formData.get("courseKey");
+      let courseCode = formData.get("courseCode");
+      let courseProg = formData.get("courseProgression");
+      let courseName = formData.get("courseName");
+      let courseSyl = formData.get("courseSyllabus");
 
       fetch(url, {
-        method: "PUT"
+        method: "PUT",
+        body: JSON.stringify({
+          id: courseKey,
+          code: courseCode,
+          prog: courseProg,
+          name: courseName,
+          syl: courseSyl
+        })
       })
         .then(function(response) {
           if (response.status !== 200) {
@@ -93,7 +103,6 @@ let loadForm = () => {
           }
           response.json().then(function(data) {
             getData();
-            console.log(data);
           });
         })
         .catch(function(err) {
@@ -102,3 +111,37 @@ let loadForm = () => {
     });
   }
 };
+
+const createData = document.getElementById("create-form");
+createData.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const newFormData = new FormData(this);
+  let courseCode = newFormData.get("courseCode");
+  let courseProg = newFormData.get("courseProgression");
+  let courseName = newFormData.get("courseName");
+  let courseSyl = newFormData.get("courseSyllabus");
+
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify({
+      code: courseCode,
+      prog: courseProg,
+      name: courseName,
+      syl: courseSyl
+    })
+  })
+    .then(function(response) {
+      if (response.status !== 200) {
+        console.log(response.status);
+        return;
+      }
+      response.json().then(function(data) {
+        location.reload();
+        console.log(data);
+      });
+    })
+    .catch(function(err) {
+      console.log("Fetch Error:", err);
+    });
+});
