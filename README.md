@@ -10,6 +10,14 @@ Här finner du källkoden för Moment 5.
 
 Länk till projektet: http://studenter.miun.se/~frfr1800/DT173G/M5/
 
+Kortare sammanfattning över hur sajten fungerar: 
+
+Kurser jag läst radas upp och ner med äldst överst. Denna information går att redigera, då information lagrats i inputs, så det går att redigera data direkt, och för att spara trycker man på den gröna spara-knappen. Jag har valt att lägga informationen i input-fields då jag tycker det är användarvänligt. 
+
+Det går även att ta bort informationen genom att trycka på den röda ta bort-knappen. 
+
+Ny data går att skapa längst ned på sidan. Tomma fält accepteras inte. Den nya informationen som du fyller i kommer med hjälp av fetch api automatiskt uppdatera listan utan refresh.
+
 1.  Automatiserings-processens syfte
 
     Syftet med en automatiseringsprocess är att du ska bli mer effektiv och snabbt kunna gå ut i produktion med din produkt. Gulp avbelastar arbetet enormt och kan ses som ett verktyg till för att underlätta. Den kan exempelvis komprimera alla js filer samtidigt istället för att göra det manuellt en efter en.
