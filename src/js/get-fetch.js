@@ -1,5 +1,7 @@
+// Funktionen som visar all data
 function displayData(x0) {
   let element = document.getElementById("box-data");
+  // Vid varje load så tar vi bort innehåll från elementet om det finns. Detta för att innehållet inte ska appendas av andra funktioner.
   element.innerHTML = "";
   x0.forEach(function(elem) {
     element.innerHTML +=
@@ -24,12 +26,15 @@ function displayData(x0) {
       "<button class='__save' type='submit'>Spara</button>" +
       "</div></form>";
   });
+  // Anropa loadForm så att antalet forms bestäms
   loadForm();
 }
 
+// Url för rest
 const url =
   "http://localhost/DT173G%20-%20Moment%205/api/app/ControllerView/CourseView.php";
 
+// Hämta data
 let getData = () => {
   fetch(url, {
     method: "GET"
@@ -48,9 +53,10 @@ let getData = () => {
       console.log("Fetch Error:", err);
     });
 };
-
+// Anropa getData() vid load
 getData();
 
+// Ta bort data. Där värdet på raden hämtas från delete-knappen.
 let deleteData = id => {
   fetch(url, {
     method: "DELETE",
@@ -71,6 +77,7 @@ let deleteData = id => {
     });
 };
 
+// Uppdatera innehållet med new FormData() objektet. Detta bryts sedan ned och läggs in i JSON.stringify som kan snappas upp av rest api.
 let loadForm = () => {
   let form = document.getElementsByClassName("form");
 
@@ -103,6 +110,7 @@ let loadForm = () => {
           }
           response.json().then(function(data) {
             getData();
+            console.log(data);
           });
         })
         .catch(function(err) {
@@ -112,6 +120,7 @@ let loadForm = () => {
   }
 };
 
+// Skapa ny data.
 const createData = document.getElementById("create-form");
 createData.addEventListener("submit", function(e) {
   e.preventDefault();
@@ -137,7 +146,9 @@ createData.addEventListener("submit", function(e) {
         return;
       }
       response.json().then(function(data) {
-        location.reload();
+        getData();
+        // Använder clearFields för att ta bort innehållet i inputs, så att inte spara-knappen kan spammas exempelvis.
+        clearFields();
         console.log(data);
       });
     })
@@ -145,3 +156,8 @@ createData.addEventListener("submit", function(e) {
       console.log("Fetch Error:", err);
     });
 });
+
+// Funktion som kallas på och tar bort värdet efter submit.
+let clearFields = () => {
+  $(".c1").val("");
+};
