@@ -12,7 +12,7 @@ Länk till projektet: http://studenter.miun.se/~frfr1800/DT173G/M5/
 
 Kortare sammanfattning över hur sajten fungerar: 
 
-Kurser jag läst radas upp och ner med äldst överst. Denna information går att redigera, då information lagrats i inputs, så det går att redigera data direkt, och för att spara trycker man på den gröna spara-knappen. Jag har valt att lägga informationen i input-fields då jag tycker det är användarvänligt. 
+Kurser jag läst radas upp och ner med äldst överst. Denna information går att redigera, då information lagrats i input fields, och för att spara trycker man på den gröna spara-knappen. Jag har valt att lägga informationen i input-fields då jag tycker det är användarvänligt. 
 
 Det går även att ta bort informationen genom att trycka på den röda ta bort-knappen. 
 
