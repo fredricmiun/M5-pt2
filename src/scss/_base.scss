@@ -1,29 +1,23 @@
 p {
-  line-height: 1.5rem;
+  display: inline-block;
 }
-nav {
-  li {
-    float: left;
-    margin-right: 15px;
-    font-size: 18px;
-    a {
-      color: transparentize(font-color($bg-color), 0.12);
-      text-decoration: none;
-      display: block;
-      &:hover {
-        color: transparentize(font-color($bg-color), 0.32);
-      }
-    }
-  }
+.p1 {
+  width: 65px;
 }
+.p2 {
+  width: 240px;
+  margin-right: 10px;
+}
+
 .content_container {
-  h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  p {
-    font-size: 14px;
+  font-size: 12px;
+  input {
     color: transparentize(font-color($bg-color), 0.42);
+    background-color: transparent;
+    display: inline-block;
+    border: none;
+    line-height: 1.5rem;
+    width: 100%;
   }
   a {
     color: $href-color;
@@ -31,9 +25,21 @@ nav {
       text-decoration: none;
     }
   }
-  img {
-    display: block;
-    width: 50%;
-    margin: 15px 0;
+  .__delete,
+  .__save {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+    float: right;
+  }
+  .__delete {
+    color: $delete-color;
+  }
+  .__save {
+    color: $save-color;
   }
 }

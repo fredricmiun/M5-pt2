@@ -8,25 +8,16 @@ $font-fam: "Open Sans", sans-serif;
   }
 }
 $href-color: #1ebcff;
+$save-color: #52df52;
+$delete-color: #df5252;
 
-/* Media Queries */
-$min-break: 320px;
-$medium-break: 600px;
-
-/* Kontrollera positioneringen, y- och x-axeln, vid absolut position */
-@mixin transform($property) {
-  -ms-transform: $property;
-  -webkit-transform: $property;
-  transform: $property;
+.margin-auto {
+  margin: 0 auto;
 }
 
 .padd {
   padding: 15px;
   border-radius: 5px;
-}
-.top_left {
-  top: 50%;
-  left: 50%;
 }
 
 html {
@@ -40,51 +31,29 @@ body {
   min-height: 100vh;
   position: relative;
   box-sizing: border-box;
-  @media screen and (max-width: $min-break) {
-    min-width: $min-break;
+}
+#box-content {
+  width: 900px;
+  @extend .margin-auto;
+  @extend .padd;
+  table {
+    width: 100%;
+    tr th {
+      border: none;
+      text-align: left;
+      padding: 8px;
+      font-size: 12px;
+    }
   }
 }
-nav {
-  background-color: darken($bg-color, 5);
-  border: 1px solid darken($bg-color, 9);
-  float: left;
-  width: 100%;
-  padding: 15px;
-  z-index: 1;
-  position: relative;
-  @media screen and (max-width: $medium-break) {
-    .nav-items-holder {
-      display: inline-block;
-      &:before {
-        cursor: pointer;
-        pointer-events: all;
-        content: "|||";
-        display: inline-block;
-        font-size: 18px;
-        position: relative;
-        @include transform(rotate(90deg));
-      }
-    }
-    li {
-      width: 100%;
-      display: none;
-      margin: 0;
-      margin-top: 15px;
-    }
-  }
+.box-header {
+  @extend .padd;
+  font-size: 12px;
 }
 .content_container {
-  @extend .top_left;
-  @include transform(translate(-50%, -50%));
   @extend .padd;
   background-color: darken($bg-color, 5);
   border: 1px solid darken($bg-color, 9);
   width: 100%;
-  max-width: 600px;
-  position: absolute;
-  @media screen and (max-width: $medium-break) {
-    @include transform(translate(0, 0));
-    top: 60px;
-    left: 0;
-  }
+  margin-bottom: 15px;
 }
